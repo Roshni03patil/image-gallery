@@ -92,11 +92,18 @@ body {
 }
 
 .lightbox-content {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #fff;
+  max-width: 95vw;
+  max-height: 90vh;
+  border-radius: 15px;
+  box-shadow: 0 0 30px #fff;
+  object-fit: contain;
 }
+
+.lightbox-content {
+  transition: transform 0.3s ease;
+  transform: scale(1.05);
+}
+
 
 .close {
   position: absolute;
