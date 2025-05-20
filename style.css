@@ -40,56 +40,22 @@ body {
   height: 500px;
   border-radius: 15px;
   overflow: hidden;
-  transform: translateY(30px);
-  opacity: 0;
-  animation: fadeInUp 0.6s ease forwards;
-  animation-delay: calc(var(--i) * 0.1s); /* Add --i using JS */
+  transform: translateY(-20px) translateZ(-50px);
+  transition: transform 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s;
-  border: 2px solid transparent;
-}
-
-@keyframes fadeInUp {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .container > div:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-40px) translateZ(-80px);
 }
 
-/* Gradient Glow Border */
-.container > div::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, #ff416c, #ff4b2b, #ff6a00, #ffc400);
-  border-radius: 15px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-}
-
-.container > div:hover::before {
-  opacity: 1;
-}
-
-/* Zoom on image */
 .container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
 }
 
-.container > div:hover img {
-  transform: scale(1.05);
-}
 
 .slide1, .slide2, .slide3, .slide4, .slide5, .slide6 {
   position: relative;
@@ -97,29 +63,12 @@ body {
   overflow: hidden;
 }
 
-/* Hover overlay effect */
-.container > div::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.container > div:hover::after {
-  opacity: 1;
-}
-
 .caption {
   position: absolute;
   bottom: 0;
   width: 100%;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5); 
   color: #fff;
   font-size: 1rem;
   text-align: center;
@@ -140,12 +89,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 .lightbox-content {
@@ -154,15 +97,13 @@ body {
   border-radius: 15px;
   box-shadow: 0 0 30px #fff;
   object-fit: contain;
-  transform: scale(0.85);
-  animation: zoomIn 0.3s ease forwards;
 }
 
-@keyframes zoomIn {
-  to {
-    transform: scale(1);
-  }
+.lightbox-content {
+  transition: transform 0.3s ease;
+  transform: scale(1.05);
 }
+
 
 .close {
   position: absolute;
